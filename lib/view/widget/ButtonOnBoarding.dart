@@ -1,11 +1,11 @@
 // ignore_for_file: file_names, prefer_typing_uninitialized_variables
 
 import 'package:electronic_payment_app/controller/onBoardingController.dart';
+import 'package:electronic_payment_app/core/constant/AppColor.dart';
 import 'package:electronic_payment_app/core/constant/AppRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../data/datasource/bg_data.dart';
 import '../../data/datasource/static/static.dart';
 
 class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
@@ -19,10 +19,9 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
         Container(
           width: 400,
           height: 40,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(bgList[0]), fit: BoxFit.fill, opacity: 0.8),
-            borderRadius: const BorderRadius.only(
+          decoration: const BoxDecoration(
+            color: AppColor.orange,
+            borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(50), topRight: Radius.circular(50)),
           ),
           child: MaterialButton(
@@ -31,6 +30,8 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
                 if (tab == 0) {
                   Get.offNamed(AppRoutes.login);
                   // Navigator.of(context).pushReplacementNamed('/login');
+                } else {
+                  Get.offNamed(AppRoutes.home);
                 }
               } else {
                 controller.next();
@@ -39,15 +40,15 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
             child: controller.currentPage >= onBoardingList.length - 1
                 ? Text(
                     'فتح التطبيق',
-                    style: Theme.of(context).textTheme.labelMedium,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   )
                 : Text(
                     'التالي',
-                    style: Theme.of(context).textTheme.labelMedium,
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
           ),
         ),
-        const SizedBox(height: 5),
+        const SizedBox(height: 10),
         Container(
           child: controller.currentPage >= onBoardingList.length - 1
               ? null
@@ -55,10 +56,8 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
                   width: 400,
                   height: 40,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(bgList[6]),
-                        fit: BoxFit.fill,
-                        opacity: 0.8),
+                    border: Border.all(width: 2, color: AppColor.orange),
+                    color: AppColor.white,
                     borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(50),
                         bottomRight: Radius.circular(50)),
@@ -69,7 +68,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
                     },
                     child: Text(
                       'تخطي',
-                      style: Theme.of(context).textTheme.labelMedium,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),
                 ),

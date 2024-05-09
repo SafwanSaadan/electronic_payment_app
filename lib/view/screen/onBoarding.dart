@@ -24,12 +24,18 @@ class OnBoarding extends StatelessWidget {
                 tab = value;
                 print(tab);
               },
-              tabs: const [
+              tabs: [
                 Tab(
-                  child: Text("تطبيق الدفع"),
+                  child: Text(
+                    "تطبيق الدفع",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
                 ),
                 Tab(
-                  child: Text("تطبيق المحاسبي"),
+                  child: Text(
+                    "التطبيق المحاسبي",
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
                 )
               ]),
           body: const TabBarView(children: [
@@ -45,7 +51,7 @@ class OnBoarding extends StatelessWidget {
                     child: Column(
                       children: [
                         CustomDotOnBoarding(),
-                        CustomButtonOnBoarding(tab:0),
+                        CustomButtonOnBoarding(tab: 0),
                       ],
                     ),
                   ),
@@ -64,7 +70,7 @@ class OnBoarding extends StatelessWidget {
                     child: Column(
                       children: [
                         CustomDotOnBoarding(),
-                        CustomButtonOnBoarding(tab:1),
+                        CustomButtonOnBoarding(tab: 1),
                       ],
                     ),
                   ),
