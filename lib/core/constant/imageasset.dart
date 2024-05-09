@@ -7,4 +7,7 @@ class ImageAsset {
   static const String onBoardingImage4 = '$rootOnBoardingImage/4.png';
   static const String onBoardingImage5 = '$rootOnBoardingImage/5.png';
   static const String onBoardingImage6 = '$rootOnBoardingImage/6.png';
+
+  static const String homeModelImage1 = 'images/phone.png';
+  static const String homeModelImage2 = 'images/cloud.jpg';
 }
