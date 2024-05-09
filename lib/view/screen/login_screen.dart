@@ -1,116 +1,37 @@
-// ignore_for_file: unnecessary_import
+// ignore_for_file: unnecessary_import, avoid_print
 
 import 'dart:ui';
 
+import 'package:electronic_payment_app/core/constant/AppRoutes.dart';
+import 'package:electronic_payment_app/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
-import '../../core/utils/animations.dart';
+import '../../controller/FloatingController.dart';
 import '../../core/utils/text_utils.dart';
 import '../../data/datasource/bg_data.dart';
+import '../widget/floatingActionButtonLogin.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  int selectedIndex = 0;
-  bool showOption = false;
-  bool isPassword = true;
-  bool chack = false;
+  final FloatingController controller =
+      Get.put(FloatingController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        floatingActionButton: Container(
-          margin: const EdgeInsets.symmetric(vertical: 10),
-          height: 49,
-          width: double.infinity,
-          child: Row(
-            children: [
-              Expanded(
-                  child: showOption
-                      ? ShowUpAnimation(
-                          delay: 100,
-                          child: ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: bgList.length,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      selectedIndex = index;
-                                    });
-                                  },
-                                  child: CircleAvatar(
-                                    radius: 30,
-                                    backgroundColor: selectedIndex == index
-                                        ? Colors.white
-                                        : Colors.transparent,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(1),
-                                      child: CircleAvatar(
-                                        radius: 30,
-                                        backgroundImage: AssetImage(
-                                          bgList[index],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                );
-                              }),
-                        )
-                      : const SizedBox()),
-              const SizedBox(
-                width: 20,
-              ),
-              showOption
-                  ? GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          showOption = false;
-                        });
-                      },
-                      child: const Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 30,
-                      ))
-                  : GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          showOption = true;
-                        });
-                      },
-                      child: CircleAvatar(
-                        backgroundColor: Colors.white,
-                        child: Padding(
-                          padding: const EdgeInsets.all(1),
-                          child: CircleAvatar(
-                            radius: 30,
-                            backgroundImage: AssetImage(
-                              bgList[selectedIndex],
-                            ),
-                          ),
-                        ),
-                      ),
-                    )
-            ],
-          ),
-        ),
+    return GetBuilder<FloatingController>(
+      builder: (controller) => Scaffold(
+        floatingActionButton: FloatingActionButtonLogin(),
         body: Container(
           height: double.infinity,
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage(bgList[selectedIndex]), fit: BoxFit.fill),
+                image: AssetImage(bgList[controller.selectedIndex]),
+                fit: BoxFit.fill),
           ),
           alignment: Alignment.center,
           child: Container(
@@ -148,6 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               border: Border(
                                   bottom: BorderSide(color: Colors.white))),
                           child: TextFormField(
+                            controller: controller.emailController,
                             keyboardType: TextInputType.emailAddress,
                             style: const TextStyle(color: Colors.white),
                             decoration: const InputDecoration(
@@ -175,37 +97,38 @@ class _LoginScreenState extends State<LoginScreen> {
                           decoration: const BoxDecoration(
                               border: Border(
                                   bottom: BorderSide(color: Colors.white))),
-                          child: TextFormField(
-                            obscureText: isPassword,
-                            keyboardType: TextInputType.visiblePassword,
-                            style: const TextStyle(color: Colors.white),
-                            decoration: InputDecoration(
-                              hintText: "كلمة المرور",
-                              suffixIcon: IconButton(
-                                icon: isPassword == true
-                                    ? const Icon(Icons.visibility_off,
-                                        color: Colors.white)
-                                    : const Icon(Icons.remove_red_eye,
-                                        color: Colors.white),
-                                onPressed: () {
-                                  isPassword = !isPassword;
-                                  setState(() {});
-                                },
+                          child: GetBuilder<FloatingController>(
+                            builder: (controller) => TextFormField(
+                              controller: controller.passwordController,
+                              obscureText: controller.isPassword,
+                              keyboardType: TextInputType.visiblePassword,
+                              style: const TextStyle(color: Colors.white),
+                              decoration: InputDecoration(
+                                hintText: "كلمة المرور",
+                                suffixIcon: IconButton(
+                                  icon: controller.isPassword == true
+                                      ? const Icon(Icons.visibility_off,
+                                          color: Colors.white)
+                                      : const Icon(Icons.remove_red_eye,
+                                          color: Colors.white),
+                                  onPressed: () {
+                                    controller.visibilityOff();
+                                  },
+                                ),
+                                prefixIcon: const Icon(
+                                  Icons.lock,
+                                  color: Colors.white,
+                                ),
+                                fillColor: Colors.white,
+                                border: InputBorder.none,
                               ),
-                              prefixIcon: const Icon(
-                                Icons.lock,
-                                color: Colors.white,
-                              ),
-                              fillColor: Colors.white,
-                              border: InputBorder.none,
                             ),
                           ),
                         ),
                         const Spacer(),
                         InkWell(
                           onTap: () {
-                            chack = !chack;
-                            setState(() {});
+                            controller.checkedbox();
                           },
                           child: Row(
                             children: [
@@ -213,12 +136,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                 height: 15,
                                 width: 15,
                                 color: Colors.white,
-                                child: Checkbox(
-                                    value: chack,
-                                    onChanged: (val) {
-                                      chack = !chack;
-                                      setState(() {});
-                                    }),
+                                child: GetBuilder<FloatingController>(
+                                  builder: (controller) => Checkbox(
+                                      value: controller.chack,
+                                      onChanged: (val) {
+                                        controller.checkedbox();
+                                      }),
+                                ),
                               ),
                               const SizedBox(
                                 width: 10,
@@ -235,7 +159,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         const Spacer(),
                         InkWell(
                           onTap: () {
+                            sharedPref!.setString(
+                                'username', controller.emailController.text);
+                            sharedPref!.setString(
+                                'password', controller.passwordController.text);
                             print("===============");
+                            Get.toNamed(AppRoutes.onBoarding);
                           },
                           child: Container(
                             height: 40,

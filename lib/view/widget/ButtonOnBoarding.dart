@@ -1,4 +1,7 @@
+// ignore_for_file: file_names, prefer_typing_uninitialized_variables
+
 import 'package:electronic_payment_app/controller/onBoardingController.dart';
+import 'package:electronic_payment_app/core/constant/AppRoutes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +29,8 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
             onPressed: () {
               if (controller.currentPage >= onBoardingList.length - 1) {
                 if (tab == 0) {
-                  Navigator.of(context).pushReplacementNamed('/login');
+                  Get.offNamed(AppRoutes.login);
+                  // Navigator.of(context).pushReplacementNamed('/login');
                 }
               } else {
                 controller.next();
@@ -34,7 +38,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
             },
             child: controller.currentPage >= onBoardingList.length - 1
                 ? Text(
-                    'إبدأ',
+                    'فتح التطبيق',
                     style: Theme.of(context).textTheme.labelMedium,
                   )
                 : Text(

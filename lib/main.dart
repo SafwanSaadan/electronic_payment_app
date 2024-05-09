@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 import 'core/constant/AppThemeData.dart';
 import 'routes.dart';
-import 'view/screen/onBoarding.dart';
+import 'view/screen/home.dart';
 
-void main() {
+late final SharedPreferences? sharedPref;
+
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  sharedPref = await SharedPreferences.getInstance();
+  // لتقيد عرض التطبيق بشكل ثابت في وضع الشاشة العمودي فقط
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(const MyApp());
@@ -19,11 +25,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const OnBoarding(),
-      theme: AppThemeData(),
-      routes: routes,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Home(),
+        theme: AppThemeData(),
+        // routes: routes,
+        getPages: getPages,
+      ),
     );
   }
 }

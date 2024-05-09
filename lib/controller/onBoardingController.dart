@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -30,7 +32,7 @@ class OnBoardingControllerImp extends OnBoardingController {
     pageController = PageController();
     super.onInit();
   }
-  
+
   @override
   nextEnd() {
     pageController.animateToPage(5,
