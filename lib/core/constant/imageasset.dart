@@ -8,6 +8,6 @@ class ImageAsset {
   static const String onBoardingImage5 = '$rootOnBoardingImage/5.png';
   static const String onBoardingImage6 = '$rootOnBoardingImage/6.png';
 
-  static const String homeModelImage1 = 'images/phone.png';
-  static const String homeModelImage2 = 'images/cloud.jpg';
+  static const String homeModelImage1 = 'assets/images/phone.png';
+  static const String homeModelImage2 = 'assets/images/cloud.jpg';
 }
