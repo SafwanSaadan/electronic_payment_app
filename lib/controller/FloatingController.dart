@@ -11,6 +11,11 @@ class FloatingController extends GetxController {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final fullNameController = TextEditingController();
+  final activityController = TextEditingController();
+  final phoneController = TextEditingController();
+  final addressController = TextEditingController();
 
   void visibilityOff() {
     isPassword = !isPassword;

@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'core/constant/AppThemeData.dart';
 import 'routes.dart';
-import 'view/screen/home.dart';
+import 'view/screen/onBoarding.dart';
 
 late final SharedPreferences? sharedPref;
 
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Home(),
+        home: const OnBoarding(),
         theme: AppThemeData(),
         // routes: routes,
         getPages: getPages,

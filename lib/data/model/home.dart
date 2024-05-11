@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class HomeModel {
   late final String? title;
   late final String? body;

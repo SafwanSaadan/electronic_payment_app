@@ -165,8 +165,8 @@ class LoginScreen extends StatelessWidget {
                                   'username', controller.emailController.text);
                               sharedPref!.setString('password',
                                   controller.passwordController.text);
-                              print("===============");
-                              Get.toNamed(AppRoutes.onBoarding);
+
+                              Get.toNamed(AppRoutes.home);
                             },
                             child: Container(
                               height: 40,
@@ -196,7 +196,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               InkWell(
                                   onTap: () {
-                                    print("======================");
+                                    Get.toNamed(AppRoutes.signup);
                                   },
                                   child: const Text(
                                     'إنشاء حساب',

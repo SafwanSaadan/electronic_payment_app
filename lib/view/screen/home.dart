@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.only(top: 70),
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(bgList[0]),
+                image: AssetImage(bgList[controller.selectedIndex]),
                 fit: BoxFit.fill,
               ),
             ),

@@ -23,7 +23,8 @@ ThemeData AppThemeData() => ThemeData(
         bodyLarge: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.w600),
         bodyMedium:
             GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w600),
-        bodySmall: GoogleFonts.cairo(fontSize: 14, fontWeight: FontWeight.w600),
+        bodySmall: GoogleFonts.cairo(
+            fontSize: 14, fontWeight: FontWeight.w600, color: Colors.white),
       ),
       buttonTheme: const ButtonThemeData(
           textTheme: ButtonTextTheme.accent, splashColor: AppColor.red),
