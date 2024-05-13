@@ -82,7 +82,7 @@ class AppBarPayment extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: controller.removeEye == true
+                  icon: controller.removeEye == false
                       ? const Icon(Icons.visibility_off, color: Colors.white)
                       : const Icon(Icons.remove_red_eye, color: Colors.white),
                   onPressed: () {
@@ -91,7 +91,7 @@ class AppBarPayment extends StatelessWidget {
                 ),
                 const SizedBox(width: Checkbox.width),
                 Container(
-                  child: controller.removeEye == true
+                  child: controller.removeEye == false
                       ? const Text("*******",
                           style: TextStyle(color: AppColor.white, fontSize: 26))
                       : const Text(
