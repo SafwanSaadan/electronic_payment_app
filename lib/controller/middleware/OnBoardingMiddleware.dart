@@ -6,7 +6,10 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 import 'package:get/get.dart';
 
-class AuthMiddleware implements GetMiddleware {
+class OnBoardingMiddleware implements GetMiddleware {
+  @override
+  int? get priority => 1;
+
   @override
   RouteSettings? redirect(String? route) {
     if (sharedPref!.getString("id") != null) {
@@ -14,9 +17,6 @@ class AuthMiddleware implements GetMiddleware {
     }
     return null;
   }
-
-  @override
-  int? get priority => 1;
 
   @override
   List<Bindings>? onBindingsStart(List<Bindings>? bindings) {

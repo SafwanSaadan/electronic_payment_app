@@ -2,14 +2,13 @@
 
 import 'dart:ui';
 
-import 'package:electronic_payment_app/core/constant/AppRoutes.dart';
-import 'package:electronic_payment_app/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../controller/FloatingController.dart';
+import '../../core/constant/AppRoutes.dart';
 import '../../core/utils/text_utils.dart';
 import '../../data/datasource/bg_data.dart';
 import '../widget/floatingActionButtonLogin.dart';
@@ -161,12 +160,8 @@ class LoginScreen extends StatelessWidget {
                           const Spacer(),
                           InkWell(
                             onTap: () {
-                              sharedPref!.setString(
-                                  'username', controller.emailController.text);
-                              sharedPref!.setString('password',
-                                  controller.passwordController.text);
-
-                              Get.toNamed(AppRoutes.home);
+                              // sharedPref!.clear();
+                              Get.offAllNamed(AppRoutes.homePayment);
                             },
                             child: Container(
                               height: 40,

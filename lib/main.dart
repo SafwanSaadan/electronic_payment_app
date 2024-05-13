@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
+import 'view/screen/onBoarding.dart';
 import 'core/constant/AppThemeData.dart';
 import 'routes.dart';
-import 'view/screen/onBoarding.dart';
 
 late final SharedPreferences? sharedPref;
 
@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         home: const OnBoarding(),
+        // initialRoute: AppRoutes.onBoarding,
         theme: AppThemeData(),
-        // routes: routes,
         getPages: getPages,
       ),
     );

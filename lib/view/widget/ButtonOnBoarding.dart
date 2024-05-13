@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../data/datasource/static/static.dart';
+import '../../main.dart';
 
 class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
   final tab;
@@ -26,12 +27,13 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
           ),
           child: MaterialButton(
             onPressed: () {
+              sharedPref!.setString('id', "1");
+
               if (controller.currentPage >= onBoardingList.length - 1) {
                 if (tab == 0) {
-                  Get.offNamed(AppRoutes.login);
-                  // Navigator.of(context).pushReplacementNamed('/login');
+                  Get.offAllNamed(AppRoutes.login);
                 } else {
-                  Get.offNamed(AppRoutes.home);
+                  Get.offAllNamed(AppRoutes.home);
                 }
               } else {
                 controller.next();

@@ -8,6 +8,7 @@ class FloatingController extends GetxController {
   bool showOption = false;
   bool isPassword = true;
   bool chack = false;
+  bool removeEye = false;
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -19,6 +20,11 @@ class FloatingController extends GetxController {
 
   void visibilityOff() {
     isPassword = !isPassword;
+    update();
+  }
+
+  void eyeOn() {
+    removeEye = !removeEye;
     update();
   }
 

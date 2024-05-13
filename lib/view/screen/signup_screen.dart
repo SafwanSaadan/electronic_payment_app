@@ -271,7 +271,7 @@ class SignUp extends StatelessWidget {
                               sharedPref!.setString('password',
                                   controller.passwordController.text);
 
-                              Get.toNamed(AppRoutes.login);
+                              Get.offAllNamed(AppRoutes.login);
                             },
                             child: Container(
                               height: 40,
