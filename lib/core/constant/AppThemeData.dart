@@ -14,7 +14,8 @@ ThemeData AppThemeData() => ThemeData(
             color: AppColor.black, fontSize: 16, fontWeight: FontWeight.bold),
         labelMedium: GoogleFonts.cairo(
             color: AppColor.black, fontSize: 14, fontWeight: FontWeight.bold),
-        labelSmall: GoogleFonts.cairo(color: AppColor.black, fontSize: 12),
+        labelSmall:
+            GoogleFonts.cairo(fontSize: 13, fontWeight: FontWeight.w600),
         bodyLarge: GoogleFonts.cairo(fontSize: 18, fontWeight: FontWeight.w600),
         bodyMedium:
             GoogleFonts.cairo(fontSize: 16, fontWeight: FontWeight.w600),

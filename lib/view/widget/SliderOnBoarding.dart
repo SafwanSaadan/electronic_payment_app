@@ -47,7 +47,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
               ),
               child: Text(
                 tab == 0 ? onBoardingList[i].body! : onBoardingList1[i].body!,
-                style: Theme.of(context).textTheme.bodySmall,
+                style: Theme.of(context).textTheme.labelSmall,
                 textAlign: TextAlign.justify,
               ),
             ),
