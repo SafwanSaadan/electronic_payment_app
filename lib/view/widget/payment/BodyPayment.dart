@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constant/AppColor.dart';
@@ -108,89 +109,94 @@ class BodyPayment extends StatelessWidget {
             },
           ),
         ),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 15),
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-          width: double.infinity,
-          height: 70,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: AppColor.white,
-            boxShadow: List.filled(
-                2,
-                const BoxShadow(
-                    blurRadius: 5,
-                    color: AppColor.black,
-                    spreadRadius: BorderSide.strokeAlignInside)),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    const Icon(
-                      Icons.store,
-                      color: AppColor.blue,
-                      size: 40,
-                    ),
-                    Text(
-                      "متجر",
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  ],
+        GestureDetector(
+          onVerticalDragDown: (details) {
+            Scaffold.of(context).appBarMaxHeight;
+          },
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 15),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            width: double.infinity,
+            height: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: AppColor.white,
+              boxShadow: List.filled(
+                  2,
+                  const BoxShadow(
+                      blurRadius: 5,
+                      color: AppColor.black,
+                      spreadRadius: BorderSide.strokeAlignInside)),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.store,
+                        color: AppColor.blue,
+                        size: 40,
+                      ),
+                      Text(
+                        "متجر",
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    const Icon(
-                      Icons.business_sharp,
-                      color: AppColor.blue,
-                      size: 40,
-                    ),
-                    Text(
-                      "يومياتي",
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  ],
+                InkWell(
+                  onTap: () {},
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.business_sharp,
+                        color: AppColor.blue,
+                        size: 40,
+                      ),
+                      Text(
+                        "يومياتي",
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    const Icon(
-                      Icons.router_outlined,
-                      color: AppColor.blue,
-                      size: 40,
-                    ),
-                    Text(
-                      "WIFI كبينة ",
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  ],
+                InkWell(
+                  onTap: () {},
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.router_outlined,
+                        color: AppColor.blue,
+                        size: 40,
+                      ),
+                      Text(
+                        "WIFI كبينة ",
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Column(
-                  children: [
-                    const Icon(
-                      Icons.sim_card,
-                      color: AppColor.blue,
-                      size: 40,
-                    ),
-                    Text(
-                      "معرض الشرائح",
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  ],
-                ),
-              )
-            ],
+                InkWell(
+                  onTap: () {},
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.sim_card,
+                        color: AppColor.blue,
+                        size: 40,
+                      ),
+                      Text(
+                        "معرض الشرائح",
+                        style: Theme.of(context).textTheme.headlineSmall,
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         )
       ],

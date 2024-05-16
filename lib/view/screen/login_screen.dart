@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                                 border: Border(
                                     bottom: BorderSide(color: Colors.white))),
                             child: TextFormField(
-                              controller: controller.emailController,
+                              controller: controller.usernameController,
                               keyboardType: TextInputType.emailAddress,
                               style: const TextStyle(color: Colors.white),
                               decoration: const InputDecoration(
@@ -161,6 +161,7 @@ class LoginScreen extends StatelessWidget {
                           InkWell(
                             onTap: () {
                               // sharedPref!.clear();
+                              // controller.userValid();
                               Get.offAllNamed(AppRoutes.homePayment);
                             },
                             child: Container(

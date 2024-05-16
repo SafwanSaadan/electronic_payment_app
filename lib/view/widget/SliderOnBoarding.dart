@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_typing_uninitialized_variables
 
 import 'package:electronic_payment_app/controller/onBoardingController.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,6 @@ import '../../data/datasource/bg_data.dart';
 import '../../data/datasource/static/static.dart';
 
 class CustomSliderOnBoarding extends GetView<OnBoardingControllerImp> {
-  // ignore: prefer_typing_uninitialized_variables
   final tab;
   const CustomSliderOnBoarding({super.key, this.tab});
 

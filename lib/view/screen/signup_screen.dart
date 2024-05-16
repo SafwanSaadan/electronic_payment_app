@@ -172,7 +172,7 @@ class SignUp extends StatelessWidget {
                                 border: Border(
                                     bottom: BorderSide(color: Colors.white))),
                             child: TextFormField(
-                              controller: controller.emailController,
+                              controller: controller.usernameController,
                               keyboardType: TextInputType.emailAddress,
                               style: const TextStyle(color: Colors.white),
                               decoration: InputDecoration(
@@ -266,8 +266,8 @@ class SignUp extends StatelessWidget {
                           const Spacer(),
                           InkWell(
                             onTap: () {
-                              sharedPref!.setString(
-                                  'username', controller.emailController.text);
+                              sharedPref!.setString('username',
+                                  controller.usernameController.text);
                               sharedPref!.setString('password',
                                   controller.passwordController.text);
 

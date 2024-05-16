@@ -1,16 +1,23 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, unrelated_type_equality_checks
 
+import 'package:electronic_payment_app/core/constant/AppColor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../core/constant/AppRoutes.dart';
+import '../core/constant/AppThemeData.dart';
+import '../main.dart';
+
 class FloatingController extends GetxController {
-  int selectedIndex = 0;
+  int selectedIndex = sharedPref!.getInt('selectedIndex') ?? 0;
   bool showOption = false;
   bool isPassword = true;
   bool chack = false;
   bool removeEye = false;
+  String username = '';
+  String password = '';
 
-  final emailController = TextEditingController();
+  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
   final fullNameController = TextEditingController();
@@ -20,6 +27,21 @@ class FloatingController extends GetxController {
 
   void visibilityOff() {
     isPassword = !isPassword;
+    update();
+  }
+
+  void userValid() {
+    if ((usernameController == sharedPref!.getString('username')) &&
+        passwordController == sharedPref!.getString('password')) {
+      Get.offAllNamed(AppRoutes.homePayment);
+    } else {
+      Get.defaultDialog(
+          title: "خطأ",
+          titleStyle: AppThemeData().textTheme.bodyLarge,
+          middleText:
+              "حطأ في تسجيل الدخول تأكد من إدخال اسم الدخول وكلمة المرور بطريقة صحيحة ",
+          middleTextStyle: const TextStyle(color: AppColor.red, fontSize: 14));
+    }
     update();
   }
 

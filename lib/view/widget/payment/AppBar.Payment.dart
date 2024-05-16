@@ -5,8 +5,6 @@ import 'package:get/get.dart';
 import '../../../controller/FloatingController.dart';
 import '../../../core/constant/AppColor.dart';
 
-import '../../../data/datasource/bg_data.dart';
-
 class AppBarPayment extends StatelessWidget {
   AppBarPayment({super.key});
 
@@ -17,60 +15,6 @@ class AppBarPayment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              margin: const EdgeInsets.all(15),
-              child: GetBuilder<FloatingController>(
-                  builder: (controller) => CircleAvatar(
-                        radius: 30,
-                        backgroundImage:
-                            AssetImage(bgList[controller.selectedIndex]),
-                      )),
-            ),
-            Container(
-              padding: const EdgeInsets.all(15),
-              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                Stack(
-                  alignment: Alignment.topLeft,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          border: Border.all(width: 1, color: AppColor.white),
-                          borderRadius: BorderRadius.circular(12)),
-                      child: IconButton(
-                        icon: const Icon(Icons.notifications,
-                            color: AppColor.white),
-                        onPressed: () {},
-                      ),
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(0.5),
-                      decoration: BoxDecoration(
-                          border: Border.all(color: AppColor.white, width: 1),
-                          borderRadius: BorderRadius.circular(100),
-                          color: AppColor.red1),
-                      child: const Text("34",
-                          style:
-                              TextStyle(color: AppColor.white, fontSize: 13)),
-                    )
-                  ],
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: AppColor.white),
-                      borderRadius: BorderRadius.circular(12)),
-                  child: IconButton(
-                    icon: const Icon(Icons.menu, color: AppColor.white),
-                    onPressed: () {},
-                  ),
-                ),
-              ]),
-            ),
-          ],
-        ),
         Text(
           "الرصيد المتاح",
           style: Theme.of(context).textTheme.headlineLarge,

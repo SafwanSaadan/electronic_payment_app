@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:electronic_payment_app/main.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -33,6 +34,8 @@ class FloatingActionButtonLogin extends StatelessWidget {
                               return GestureDetector(
                                 onTap: () {
                                   controller.selectedIndex = index;
+                                  sharedPref!.setInt('selectedIndex',
+                                      controller.selectedIndex);
                                   controller.update();
                                 },
                                 child: CircleAvatar(

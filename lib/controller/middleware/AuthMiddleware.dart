@@ -1,10 +1,11 @@
 // ignore_for_file: implementation_imports, file_names
 
 import 'package:electronic_payment_app/core/constant/AppRoutes.dart';
-import 'package:electronic_payment_app/main.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/navigator.dart';
 import 'package:get/get.dart';
+
+import '../../main.dart';
 
 class AuthMiddleware implements GetMiddleware {
   @override
