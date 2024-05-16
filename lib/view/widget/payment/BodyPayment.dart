@@ -148,7 +148,7 @@ class BodyPayment extends StatelessWidget {
                           ),
                           child: Text(
                             onBoardingList1[i].body!,
-                            style: Theme.of(context).textTheme.bodySmall,
+                            style: Theme.of(context).textTheme.labelSmall,
                             textAlign: TextAlign.justify,
                           ),
                         ),
