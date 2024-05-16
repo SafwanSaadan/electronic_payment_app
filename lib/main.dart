@@ -3,11 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'view/screen/fitness_app/fitness_app_home_screen.dart';
 import 'view/screen/onBoarding.dart';
 import 'core/constant/AppThemeData.dart';
 import 'routes.dart';
-import 'view/screen/payment/home.dart';
 
 late final SharedPreferences? sharedPref;
 
@@ -35,7 +33,7 @@ class MyApp extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: const HomePayment(),
+        home: const OnBoarding(),
         // initialRoute: AppRoutes.onBoarding,
         theme: AppThemeData(),
         getPages: getPages,
