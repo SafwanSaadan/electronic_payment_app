@@ -33,7 +33,7 @@ class Home extends StatelessWidget {
                   onTap: () {
                     i == 0
                         ? Get.toNamed(AppRoutes.login)
-                        : Get.toNamed(AppRoutes.home);
+                        : Get.toNamed(AppRoutes.navBarView);
                   },
                   child: Container(
                     margin: const EdgeInsets.all(Constants.margin),

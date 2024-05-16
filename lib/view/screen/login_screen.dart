@@ -162,7 +162,7 @@ class LoginScreen extends StatelessWidget {
                             onTap: () {
                               // sharedPref!.clear();
                               // controller.userValid();
-                              Get.offAllNamed(AppRoutes.homePayment);
+                              Get.offAllNamed(AppRoutes.navBarView);
                             },
                             child: Container(
                               height: 40,

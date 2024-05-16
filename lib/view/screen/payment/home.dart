@@ -22,7 +22,6 @@ class HomePayment extends StatelessWidget {
           automaticallyImplyLeading: false,
         ),
         drawer: const Drawer(child: ProfileScreen()),
-        // bottomNavigationBar: const BottomBarView(),
         body: Container(
           color: AppColor.blue2,
           child: SingleChildScrollView(

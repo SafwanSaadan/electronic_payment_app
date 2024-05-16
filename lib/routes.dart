@@ -8,6 +8,7 @@ import 'view/screen/home.dart';
 import 'view/screen/login_screen.dart';
 import 'view/screen/onBoarding.dart';
 import 'view/screen/signup_screen.dart';
+import 'view/widget/payment/NavBarView.dart';
 
 Map<String, Widget Function(BuildContext)> routes = {
   AppRoutes.login: (context) => LoginScreen(),
@@ -22,4 +23,5 @@ List<GetPage<dynamic>>? getPages = [
   GetPage(name: AppRoutes.signup, page: () => SignUp()),
   GetPage(name: AppRoutes.home, page: () => Home()),
   GetPage(name: AppRoutes.homePayment, page: () => const HomePayment()),
+  GetPage(name: AppRoutes.navBarView, page: () => const NavBarView()),
 ];

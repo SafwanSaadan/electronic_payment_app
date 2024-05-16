@@ -28,13 +28,12 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImp> {
           child: MaterialButton(
             onPressed: () {
               sharedPref!.setString('id', "1");
-              
 
               if (controller.currentPage >= onBoardingList.length - 1) {
                 if (tab == 0) {
                   Get.offAllNamed(AppRoutes.login);
                 } else {
-                  Get.offAllNamed(AppRoutes.home);
+                  Get.offAllNamed(AppRoutes.navBarView);
                 }
               } else {
                 controller.next();
